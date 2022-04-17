@@ -1,9 +1,9 @@
 # mastobooper
 
 > `<ckie> Dee: badoop`
-<br>
+
 > `<Dee> it is actually called boop.ogg`
-<br>
+
 > `<ckie> i should go write a bot to randomly badoop you`
 
 `nix run github:ckiee/mastobooper`
