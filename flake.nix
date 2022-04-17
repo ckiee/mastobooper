@@ -20,7 +20,7 @@
 
             buildInputs = [ alsaLib ];
             nativeBuildInputs = [ pkg-config ];
-            cargoSha256 = "sha256-rmr93gxp6IYnP4tBM5+4bfTYY+pjxrC+AOq3PHhWvFs=";
+            cargoSha256 = "sha256-KpomRIkt/+GMxkTzidULsMgQFMmZEOktq89u6yy9XxQ=";
 
             meta = with lib; {
               description = "mastobooper";

@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.56"
 rand = "0.8.5"
-rodio = "0.15.0"
+rodio = { version = "0.15.0", default-features = false, features = [ "vorbis" ] }
