@@ -11,29 +11,34 @@
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = nixpkgs.legacyPackages.${system};
       in rec {
-        packages.mastobooper = with pkgs;
-          rustPlatform.buildRustPackage rec {
-            pname = "mastobooper";
-            version = "0.1.0";
+        packages = rec {
+          mastobooper = with pkgs;
+            rustPlatform.buildRustPackage rec {
+              pname = "mastobooper";
+              version = "0.1.0";
 
-            src = ./.;
+              src = ./.;
 
-            buildInputs = [ alsaLib ];
-            nativeBuildInputs = [ pkg-config ];
-            cargoSha256 = "sha256-KpomRIkt/+GMxkTzidULsMgQFMmZEOktq89u6yy9XxQ=";
+              buildInputs = [ alsaLib ];
+              nativeBuildInputs = [ pkg-config ];
+              cargoSha256 =
+                "sha256-KpomRIkt/+GMxkTzidULsMgQFMmZEOktq89u6yy9XxQ=";
 
-            meta = with lib; {
-              description = "mastobooper";
-              license = licenses.unlicense;
+              meta = with lib; {
+                description = "mastobooper";
+                license = licenses.unlicense;
+              };
             };
-          };
-
-        apps.mastobooper = flake-utils.lib.mkApp {
-          name = "mastobooper";
-          drv = packages.mastobooper;
+          default = mastobooper;
         };
-        defaultApp = apps.mastobooper;
-        defaultPackage = packages.mastobooper;
+
+        apps = rec {
+          mastobooper = flake-utils.lib.mkApp {
+            name = "mastobooper";
+            drv = packages.mastobooper;
+          };
+          default = mastobooper;
+        };
 
         devShell = pkgs.mkShell {
           CARGO_INSTALL_ROOT = "${toString ./.}/.cargo";
