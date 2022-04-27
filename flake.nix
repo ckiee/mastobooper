@@ -32,6 +32,8 @@
           default = mastobooper;
         };
 
+        defaultPackage = packages.default;
+
         apps = rec {
           mastobooper = flake-utils.lib.mkApp {
             name = "mastobooper";
@@ -39,6 +41,8 @@
           };
           default = mastobooper;
         };
+
+        defaultApp = apps.default;
 
         devShell = pkgs.mkShell {
           CARGO_INSTALL_ROOT = "${toString ./.}/.cargo";
