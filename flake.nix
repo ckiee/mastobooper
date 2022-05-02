@@ -8,6 +8,14 @@
     # flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = inputs@{ self, dream2nix }:
-    {};
+  outputs = inputs@{ self, dream2nix, ... }:
+    let
+      project = inputs.dream2nix.lib.init {
+        # modify according to your supported systems
+        systems = [ "x86_64-linux" ];
+        config.projectRoot = ./.;
+      };
+    in project.makeFlakeOutputs {
+      source = ./.;
+    };
 }
