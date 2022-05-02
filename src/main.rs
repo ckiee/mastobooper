@@ -1,9 +1,9 @@
 use anyhow::Result;
 use rand::Rng;
-use rodio::{source::Source, Decoder, OutputStream};
-use rodio::{Sink, SpatialSink};
-use std::fs::File;
-use std::io::{BufReader, Cursor};
+use rodio::{Decoder, OutputStream};
+use rodio::{SpatialSink};
+
+use std::io::{Cursor};
 use std::time::Duration;
 use clap::Parser;
 
@@ -16,8 +16,8 @@ struct Args {
     nya: bool,
 }
 
-static NYA: &'static[u8] = include_bytes!("./nya.ogg");
-static BOOP: &'static[u8] = include_bytes!("./boop.ogg");
+static NYA: &[u8] = include_bytes!("./nya.ogg");
+static BOOP: &[u8] = include_bytes!("./boop.ogg");
 
 fn main() -> Result<()> {
     let args = Args::parse();
