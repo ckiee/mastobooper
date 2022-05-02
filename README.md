@@ -1,5 +1,7 @@
 # mastobooper
 
+*Now with `--nya`s! ✨🐱*
+
 > `<ckie> Dee: badoop`
 
 > `<Dee> it is actually called boop.ogg`
@@ -9,7 +11,7 @@
 `nix run github:ckiee/mastobooper`
 
 # license
-the badoop is from mastodon.
+the badoop is from mastodon. the nya sound is from [catcatnya.com](https://catcatnya.com/sounds/boop.ogg).
 
 https://unlicense.org/
 ```
